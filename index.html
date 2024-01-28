@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bouncing Ball Animation</title>
+    <style>
+      @keyframes moveit {
+        0% {
+          left: 0%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      @keyframes bounce {
+        0% {
+          top: 0px;
+          transform: scale(1, 1);
+        }
+        80% {
+          transform: scale(0.85, 1);
+        }
+        100% {
+          top: 320px;
+          transform: scale(1.2, 0.6);
+        }
+      }
+
+      @keyframes scaleit {
+        0% {
+          transform: scale(0.4, 0.1);
+          opacity: 0.3;
+        }
+        100% {
+          transform: scale(1, 0.2);
+        }
+      }
+
+      html {
+        height: 100%;
+      }
+      body {
+        height: 100%;
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: #000000;
+        background: linear-gradient(
+          to bottom,
+          #f2f6f8 0%,
+          #d8e1e7 45%,
+          #b5c6d0 46%,
+          #e0eff9 70%,
+          #ffffff 100%
+        );
+      }
+
+      .container {
+        position: absolute;
+        width: auto;
+        height: 200px;
+        margin-top: 10%;
+        right: 82px;
+        left: 0px;
+      }
+
+      .ball-container {
+        position: absolute;
+        height: 400px;
+        width: 80px;
+        animation-name: moveit;
+        animation-duration: 8s;
+        animation-direction: alternate;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+
+      .ball {
+        position: absolute;
+        height: 80px;
+        width: 80px;
+        border-radius: 40px;
+        background: radial-gradient(
+          at 20px 20px,
+          rgb(250, 142, 155) 0%,
+          rgb(105, 16, 16) 100% /* Darker red */
+        );
+        box-shadow: inset -10px -10px 10px rgba(0, 0, 0, 0.6);
+        animation-name: bounce;
+        animation-duration: 0.5s;
+        animation-direction: alternate;
+        animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+        animation-iteration-count: infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="ball-container">
+        <div class="ball"></div>
+      </div>
+    </div>
+  </body>
+</html>
